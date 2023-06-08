@@ -1,4 +1,7 @@
+#!/usr/bin/python3
+
 print('Bienvenido a mi primer programa de escaneo')
+print('<------------------------------------------>')
 
 import nmap
 
