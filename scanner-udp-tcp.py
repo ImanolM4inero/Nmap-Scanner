@@ -15,7 +15,18 @@ respuesta = input('''\n Por favor seleccione el tipo de escaneo
 
 print('Su seleccion fue: ', respuesta)
 
-if respuesta =='1':
+if respuesta=='1':
   print('Nmap version: ', scanner.nmap_version())
   scanner.scann(ip_add, '1-1024', '-O', '-v')
   print(scanner.scaninfo())
+  print('Estado IP: ', scanner[ip_add].state())
+  print(scanner[ip_add].all_protocols())
+  print('Puertos abiertos: ', scanner[ip_add][tcp].keys())
+
+if respuesta=='2':
+  print('Nmap version: ', scanner.nmap_version())
+  scanner.scan(ip_add, '1-1024', '-sU', '-v')
+  print(scanner.scaninfo())
+  print('Estado de IP: ', scanner[ip_add].state())
+  print(scanner[ip_add].all_protocols())
+  print('Puertos abiertos: ', scanner[ip_add]['udp'].keys())
